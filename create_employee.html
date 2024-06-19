@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Management System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light gray background */
+        }
+        .container {
+            margin-top: 20px; /* Add some top margin for spacing */
+        }
+        .card {
+            box-shadow: 0 0 15px rgba(0,0,0,0.1); /* Add subtle shadow to cards */
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">Employee Management System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav ml-auto"> <!-- Align navbar links to the right -->
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/employees}">Employee Management</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="row justify-content-center mt-4">
+        <div class="col-lg-6">
+            <div class="card">
+                <h2 class="card-header text-center">Create New Employee</h2>
+                <div class="card-body">
+                    <form th:action="@{/employees}" th:object="${employee}" method="POST">
+                        <div class="form-group">
+                            <label for="firstName">Employee First Name</label>
+                            <input type="text" id="firstName" name="firstName" th:field="*{firstName}"
+                                   class="form-control" placeholder="Enter Employee First Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Employee Last Name</label>
+                            <input type="text" id="lastName" name="lastName" th:field="*{lastName}"
+                                   class="form-control" placeholder="Enter Employee Last Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Employee Email</label>
+                            <input type="email" id="email" name="email" th:field="*{email}"
+                                   class="form-control" placeholder="Enter Employee Email" required>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+alrOjrSt2ZGb+2D1PuFIQIHpGJ3A6fF8/VI3R7SLtLEq5n"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>
